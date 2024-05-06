@@ -6,6 +6,7 @@ using System.Collections;
 // to tell the user that the file the have enter does not exist
 // i included a clear function to clear out the information on a particular journal file, just in case the 
 // 2. user wants to clear the infromation in their journal
+//3. I asked the user to write the lesson they have learnt about life
 
 class Program
 {
