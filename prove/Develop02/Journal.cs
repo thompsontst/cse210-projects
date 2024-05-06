@@ -1,3 +1,7 @@
+using System.IO;
+using System.Reflection.Metadata;
+
+
 public class Journal
 {
     public List<Entry>_entries = new List<Entry>();
@@ -9,11 +13,34 @@ Entry userEntries = new Entry();
 userEntries.GetDate();
 userEntries.GenerateUserPrompt();
 userEntries.Response();
+
 _entries.Add(userEntries);
 
 }
+
+public void ClearFile (string file)
+{
+    bool clearFile = false;
+do
+{
+    
+if (!File.Exists(file))
+{
+    Console.WriteLine("The File you have entered does not exists, please enter a correct file name");
+}
+
+else
+{
+    File.WriteAllText(file, "");
+    Console.WriteLine("\n Your Journal is Cleared");
+
+
+} 
+}while(clearFile);
+}
 public void DisplayAll()
 {
+    
     foreach (Entry userEntry in _entries)
 {
     Console.WriteLine($"Date: {userEntry._date}");
@@ -29,34 +56,31 @@ public void SaveToFile(string file)
 {
     using (StreamWriter outputFile = new StreamWriter(file, true))
     {
-        if (file.EndsWith(".csv"))
-        {
-            foreach (Entry entry in _entries)
-            {
-                outputFile.WriteLine($"{entry._date}, {entry._promptText}, {entry._entryText}");
-            }
-        }
-        else
-        {
+        
             foreach (Entry entry in _entries)
             {
                 outputFile.WriteLine($"Date: {entry._date}");
                 outputFile.WriteLine($"Prompt: {entry._promptText}");
-                outputFile.WriteLine($"Prompt: {entry._entryText}");
+                outputFile.WriteLine($"Answer: {entry._entryText}");
                 outputFile.WriteLine();
             }
 
         }
 
     }
-}
-
 
 public void LoadFromFile( string file)
 {
-if (file.EndsWith(".csv"))
+bool loadFile = false;
+do
 {
-    string[] lines = System.IO.File.ReadAllLines(file);
+if (!File.Exists(file))
+{
+    Console.WriteLine("The File you have entered does not exists, please enter a correct file name");
+}
+else if (file.EndsWith(".csv"))
+{
+    string[] lines = File.ReadAllLines(file);
     foreach (string line in lines)
     {
         string [] parts = line.Split(",");
@@ -65,7 +89,7 @@ if (file.EndsWith(".csv"))
         string entry = parts[2];
     Console.WriteLine($"Date: {date}");
     Console.WriteLine($"Prompt: {prompt}");
-    Console.WriteLine($"Date: {entry}");
+    Console.WriteLine($"Answer: {entry}");
     Console.WriteLine();
 
     }
@@ -78,5 +102,8 @@ if (file.EndsWith(".csv"))
     Console.Write(journalEntries);
 }
     }
+    } while(loadFile);
 }
+
 }
+

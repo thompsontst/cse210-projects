@@ -1,6 +1,12 @@
 using System;
 using System.Collections;
 
+// Exceed Expectation!!!
+// 1. i included a method to check if a particular file exist and if it does not, i throw an error statement
+// to tell the user that the file the have enter does not exist
+// i included a clear function to clear out the information on a particular journal file, just in case the 
+// 2. user wants to clear the infromation in their journal
+
 class Program
 {
     static void Main(string[] args)
@@ -9,29 +15,32 @@ class Program
         Console.WriteLine("Welcome to the program!");
 
     bool startProgram = true;
-    while (startProgram)
+    do 
     {
         Console.WriteLine("Please select one the following choices: ");
         Console.WriteLine("1. Write");
         Console.WriteLine("2. Display");
         Console.WriteLine("3. Load");
         Console.WriteLine("4. Save");
-        Console.WriteLine("5. quit");
+        Console.WriteLine("5. Clear");
+        Console.WriteLine("6. quit");
         Console.WriteLine(" What would you Like to do? ");
-        int makeChoice = int.Parse(Console.ReadLine());
+        
+        string  makeChoice = Console.ReadLine();
         Console.WriteLine();
+    
     switch (makeChoice)
     {
-        case 1:
+        case "1":
         journal.AddEntry();
         Console.WriteLine();
         break;
 
-    case 2:
+    case "2":
         journal.DisplayAll();
         Console.WriteLine();
         break;
-    case 3:
+    case "3":
     
     Console.WriteLine("Enter the file name you want to load");
     string loadFile = Console.ReadLine();
@@ -39,7 +48,7 @@ class Program
     Console.WriteLine();
     break;
 
-case 4:
+case "4":
     
     Console.WriteLine("Enter the file name you want to save");
     string saveFile = Console.ReadLine();
@@ -47,7 +56,16 @@ case 4:
     Console.WriteLine("Your file is saved!!! ");
     Console.WriteLine();
     break;
-case 5:
+
+case "5":
+    
+    Console.WriteLine("Enter the file name you want to clear");
+    string clearFile = Console.ReadLine();
+    journal.ClearFile(clearFile);
+    Console.WriteLine();
+    break;
+
+case "6":
     
     startProgram = false;
     Console.WriteLine("Thank You for your time, have a nice day, we hope to see you again bye.... ");
@@ -55,11 +73,11 @@ case 5:
     break;
 
     default:
-    Console.WriteLine("Invalid option, Please choose Numbers 1 - 5; Thank you");
+    Console.WriteLine("Invalid option, Please choose Numbers 1 - 6; Thank you");
    break;
-   Console.WriteLine();
+ 
     }
-    }
+    } while (startProgram);
 
 }
 }
