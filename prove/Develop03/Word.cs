@@ -19,23 +19,23 @@ _listOfScriptureText = _scripture.GetDisplayText().Split(" ").ToList();
 public void Hide()
 {
     int quanToHide = 3;
-    int wordsToDelete = 0;
+    int wordsToHide = 0;
 
     do {
         int wordIndex = new Random().Next(0, _listOfScriptureText.Count());
         if (_listOfScriptureText[wordIndex].Contains('_') == false)
         {
             _listOfScriptureText[wordIndex] = new string('_', _listOfScriptureText[wordIndex].Length);
-            wordsToDelete++;
+            wordsToHide++;
             _wordsDeleted++;
         
         if (( _listOfScriptureText.Count() - quanToHide) <= _wordsDeleted && _wordsDeleted < (_listOfScriptureText.Count() + 1))
         {
-            wordsToDelete = 3;
+           wordsToHide = 3;
         }
 
     }
-    } while(wordsToDelete != quanToHide);
+    } while(wordsToHide != quanToHide);
 }
 public string GetDisplayText()
 {
@@ -54,4 +54,5 @@ public bool IsHidden()
     }
     return hideWords;
 }
+
 }

@@ -10,17 +10,21 @@ class Program
 
       string userInput = "";
 
-    while (userInput != "quit" && memorizeScripture.IsHidden() == true)
+    while (true)
     {
+        if (userInput != "quit" && memorizeScripture.IsHidden() == true)
+        {
         Console.Clear();
         Console.WriteLine(string.Format("{0} {1}", scriptureReference.GetDisplayText(), memorizeScripture.GetDisplayText()));
         Console.WriteLine();
         userInput= Console.ReadLine();
         memorizeScripture.Hide();    
-    }
+    
         Console.Clear();
         Console.WriteLine(string.Format("{0} {1}", scriptureReference.GetDisplayText(), memorizeScripture.GetDisplayText()));
         Console.WriteLine();
-        Console.WriteLine("Good Job");
+        Console.WriteLine("Welldone you have memorize pro. 3:5-6");
+    }
+    }
     }
 }
