@@ -2,9 +2,11 @@ namespace week04_demo {
 public class MathAssignment : Assignment
 {
 protected string _textBookSection;
-public MathAssignment(string studentName, string topic, string textBookSection): base(studentName,topic)
+protected string _problems;
+public MathAssignment(string studentName, string topic, string textBookSection, string MathProblems): base(studentName,topic)
 {
     _textBookSection = textBookSection;
+    _problems = MathProblems;
 }
 public string GetHomeWorkList()
 {
