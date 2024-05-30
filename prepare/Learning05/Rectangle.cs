@@ -1,0 +1,23 @@
+using System;
+namespace week05Learning {
+
+public  class Rectangle:Shape
+{
+private double _length;
+private double _width;
+
+
+public Rectangle (string color, double length, double width) : base (color)
+{
+    _length = length;
+    _width = width;
+}
+public override double GetArea()
+{
+    double areaOfRectangle = _width * _length;
+
+    return areaOfRectangle;
+}
+} 
+
+}
