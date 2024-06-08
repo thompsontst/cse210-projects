@@ -18,7 +18,7 @@ namespace EventManagement
            _zipCode = zipCode;
         }
 
-        public override string ToString()
+        public  string EVentAddress()
         {
             return $"{_street}, {_city}, {_state} {_zipCode}";
         }
