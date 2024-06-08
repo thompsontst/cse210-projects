@@ -4,18 +4,21 @@ namespace EventManagement
 {
 public class OutdoorGathering : Event
     {
-        private string WeatherForecast;
+        private string _weatherForecast;
 
-        public OutdoorGathering(string title, string description, DateTime date, string time, Address address, string weatherForecast)
+        public OutdoorGathering(string title, string description, DateTime date, TimeSpan time, Address address, string weatherForecast)
             : base(title, description, date, time, address)
         {
-            WeatherForecast = weatherForecast;
+            _weatherForecast = weatherForecast;
         }
 
-
-public override string DisplayEventInfoDetails()
+public  override string DisplayTypeOfEvent()
+ {
+    return "Outdoor Gathering";
+ }
+        public override string DisplaySpecificDetails()
         {
-            return $"{DisplayAdertisementMessage()}\nType: Outdoor Gathering\nWeather: {WeatherForecast}";
+            return $"Type: {DisplayTypeOfEvent()}\nWeather Forecast: {_weatherForecast}";
         }
     }
 }

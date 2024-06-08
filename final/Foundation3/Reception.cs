@@ -5,18 +5,22 @@ namespace EventManagement
 
 public class Reception : Event
     {
-        private string RsvpEmail;
+        private string _rsvpEmail;
         
 
-        public Reception(string title, string description, DateTime date, string time, Address address, string rsvpEmail)
+        public Reception(string title, string description, DateTime date, TimeSpan time, Address address, string rsvpEmail)
             : base(title, description, date, time, address)
         {
-            RsvpEmail = rsvpEmail;
+            _rsvpEmail = rsvpEmail;
         }
 
-        public override string DisplayEventInfoDetails()
+ public  override string DisplayTypeOfEvent()
+ {
+    return "Reception";
+ }
+        public override string DisplaySpecificDetails()
         {
-            return $"{DisplayAdertisementMessage()}\nType: Reception\nRSVP Email: {RsvpEmail}";
+            return $"Type: {DisplayTypeOfEvent()}\nRSVP Email: {_rsvpEmail}";
         }
     }
 }

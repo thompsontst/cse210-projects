@@ -8,22 +8,23 @@ namespace EventManagement
         {
           
 
-            Address address1 = new Address("123 Main St", "Springfield", "IL", "62701");
-            Address address2 = new Address("456 Elm St", "Metropolis", "NY", "10001");
-            Address address3 = new Address("789 Oak St", "Gotham", "NJ", "07001");
+            Address address1 = new Address("241 SDP St", "EKET", "AKS", "524101");
+            Address address2 = new Address("230 Ile Ogbo Street", "Ikeja", "Lagos", "100271");
+            Address address3 = new Address("423 Aba Road", "Porthacourt", "Rivers", "450251");
 
        
-        Lecture lecture = new Lecture("Python Programming", "An introduction to Python", new DateTime(2024, 7, 1), new TimeSpan(10, 0, 0), address1, "John Doe", 100);
-        Reception reception = new Reception("Company Gala", "Annual company gathering", new DateTime(2024, 8, 15), new TimeSpan(18, 0, 0), address2, "rsvp@company.com");
-        OutdoorGathering outdoorGathering = new OutdoorGathering("Community BBQ", "A fun day in the park", new DateTime(2024, 9, 10), new TimeSpan(12, 0, 0), address3, "Sunny with a chance of rain");
+        Lecture lecture = new Lecture("C# Programming", "An introduction to C#", new DateTime(2024, 6, 22), new TimeSpan(10, 0, 0), address1, "Aniekan Thompson", 120);
+        Reception reception = new Reception("Hamster Properties", "Team Buliding Reception", new DateTime(2024, 7, 18), new TimeSpan(19, 0, 0), address2, "rsvp@hamsterproperties.org");
+        OutdoorGathering outdoorGathering = new OutdoorGathering("Summer Camp", "Let's Shake some things Off", new DateTime(2024, 7, 30), new TimeSpan(10, 0, 0), address3, "Sunny with a chance of rain");
 
         Event[] events = { lecture, reception, outdoorGathering };
 
         foreach (var eventItem in events)
         {
-            Console.WriteLine("Standard Details:\n" + eventItem.GetStandardDetails());
+            Console.WriteLine("\nAdvertisement Message:\n" + eventItem.DisplayAdertisementMessage() + "\n");
+            Console.WriteLine("Standard Details:\n" + eventItem.DisplayEventStandardDetails());
             Console.WriteLine("\nFull Details:\n" + eventItem.GetFullDetails());
-            Console.WriteLine("\nShort Description:\n" + eventItem.GetShortDescription());
+            Console.WriteLine("\nShort Description:\n" + eventItem.DisplayShortDescription());
             Console.WriteLine("\n" + new string('-', 40) + "\n");
         }
         }

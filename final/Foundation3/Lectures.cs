@@ -8,16 +8,20 @@ public class Lecture : Event
         private string _Speaker;
         private int _Capacity;
 
-        public Lecture(string title, string description, DateTime date, string time, Address address, string speaker, int capacity)
+        public Lecture(string title, string description, DateTime date, TimeSpan time, Address address, string speaker, int capacity)
             : base(title, description, date, time, address)
         {
             _Speaker = speaker;
             _Capacity = capacity;
         }
-
-        public override string DisplayEventInfoDetails()
+    public  override string DisplayTypeOfEvent()
+ {
+    return "Lecture";
+ }
+        public override string DisplaySpecificDetails()
         {
-            return $"{DisplayAdertisementMessage()}\nType: Lecture\nSpeaker: {_Speaker}\nCapacity: {_Capacity}";
+            return $"Type: {DisplayTypeOfEvent()}\nSpeaker: {_Speaker} \n Capacity: {_Capacity}";
         }
+        
     }
 }

@@ -42,13 +42,21 @@ namespace EventManagement
     }
         public virtual string DisplayEventStandardDetails()
         {
-            return $"{_TitleOfEvents }\n{_eventDescription}\nDate: {_dateOfEvents.ToShortDateString()}\nTime: { _EventTime.ToString(@"hh\:mm")}\nAddress: {_address.EVentAddress()}";
+            return $"{_TitleOfEvents }\n{_eventDescription}\nDate: {_dateOfEvents}\nTime: { _EventTime.ToString(@"hh\:mm")}\nAddress: {_address.EVentAddress()}";
         }
+
+
+
         public virtual string DisplayAdertisementMessage()
         {
             return $"Join us for {_TitleOfEvents} on {_dateOfEvents} at {_address.EVentAddress()} by {_EventTime}!";
         }
     public  abstract string DisplayTypeOfEvent();
     public abstract string DisplaySpecificDetails();
+    
+    public string GetFullDetails()
+    {
+        return DisplayEventStandardDetails() + "\n" + DisplaySpecificDetails();
     }
+}
 }
